@@ -1,0 +1,26 @@
+.main{
+    height: 6rem;
+    width: 100%;
+    background: rgb(244, 203, 81);
+}
+
+.content{
+    height: 100%;
+    width: 90%;
+    margin: 0px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content > .logo-sec img{
+    width: 80px;
+}
+
+.menues{
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    margin: auto 0px;
+    font-weight: 500;
+}
