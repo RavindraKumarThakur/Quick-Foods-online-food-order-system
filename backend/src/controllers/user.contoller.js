@@ -1,5 +1,6 @@
 import { asyncHandler } from "../../../../Backend/MainProject/src/utils/asyncHandler.js";
 import { User } from "../models/user.model.js";
+import jwt from "jsonwebtoken";
 
 const userRegister = asyncHandler(async (req, res) => {
 
@@ -38,7 +39,15 @@ const userRegister = asyncHandler(async (req, res) => {
         gender
     })
 
+    const accessToken = jwt.sign({
+        userId : user._id,
+        email,
+        password,
+        fullName
+    },process.env.ACCESS_TOKEN_SECRET)
+
     return res.status(200).json({
+        accessToken,
         statusCode: 200,
         user,
         message: "Created user successsfully"
@@ -62,7 +71,7 @@ const loginUser = asyncHandler(async (req,res) => {
         throw console.log("User do not exist");
     }
 
-    const isValidPassword = await user.password == password;
+    const isValidPassword = await user.isPasswordCorrect(password);
 
     if(!isValidPassword){
         throw console.log("Password is incorrect")
