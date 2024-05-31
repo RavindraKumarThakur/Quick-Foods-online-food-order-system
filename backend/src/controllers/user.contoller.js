@@ -28,7 +28,7 @@ const userRegister = asyncHandler(async (req, res) => {
 
     console.log(`${userName},${email},${password},${address},${pincode},${fullName}`);
 
-    await User.create({
+    const user = await User.create({
         userName,
         email,
         password,
@@ -37,6 +37,78 @@ const userRegister = asyncHandler(async (req, res) => {
         pincode,
         gender
     })
+
+    return res.status(200).json({
+        statusCode: 200,
+        user,
+        message: "Created user successsfully"
+    })
 })
 
-export {userRegister}
+const loginUser = asyncHandler(async (req,res) => {
+    const { email, password } = req.body;
+
+    if([email,password].some((fields) => fields?.trim() === "")){
+        throw console.log("All fields are neccessary");
+    }else if(!(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/).test(email)) {
+        throw console.log(`Please enter valid email address`);
+    }else if(password.length <= 6 || password.length >= 15){
+        throw console.log(`Password should be less than 15 characters or greater than 6 characters`);
+    }
+
+    const user = await User.findOne({email});
+
+    if (!user) {
+        throw console.log("User do not exist");
+    }
+
+    const isValidPassword = await user.password == password;
+
+    if(!isValidPassword){
+        throw console.log("Password is incorrect")
+    }
+
+    const loggedInUser = await User.findById(user._id);
+    console.log("User loggedIn")
+
+    return res.status(200).json({
+        statusCode: 200,
+        loggedInUser,
+        message: "User is loggedIn"
+    })
+
+})
+
+const changePassword = asyncHandler( async (req, res) => {
+    const {email, password} = req.body;
+
+    if ([email, password].some((fields) => fields?.trim() === "")) {
+        throw console.log("All fields are required")
+    }else if(!(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/).test(email)) {
+        throw console.log(`Please enter valid email address`);
+    }else if(password.length <= 6 || password.length >= 15){
+        throw console.log(`Password should be less than 15 characters or greater than 6 characters`);
+    }
+    
+    const user = await User.findOne({email});
+
+    if (!user) {
+        throw console.log("User do not exist");
+    }
+
+    user.password = password
+    const updatedUser = await user.save();
+    console.log("Password successfully changed");
+
+    return res.status(200).json({
+        statusCode: 200,
+        updatedUser,
+        message: "Password successfully changed"
+    })
+})
+
+export {
+    userRegister,
+    loginUser,
+    changePassword
+}

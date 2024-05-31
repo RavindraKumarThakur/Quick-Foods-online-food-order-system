@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
-import { userRegister } from "./controllers/user.contoller.js";
+import { router as userRouter } from "./route/user.routes.js";
 
 const app = express();
 
@@ -14,6 +14,6 @@ app.use(express.urlencoded({extended:true}))
 app.use(bodyParser.json());
 
 
-app.use("/api/v1/users",userRegister);
+app.use("/api/v1/users",userRouter);
 
 export {app}
