@@ -39,15 +39,8 @@ const userRegister = asyncHandler(async (req, res) => {
         gender
     })
 
-    const accessToken = jwt.sign({
-        userId : user._id,
-        email,
-        password,
-        fullName
-    },process.env.ACCESS_TOKEN_SECRET)
-
-    return res.status(200).json({
-        accessToken,
+    return res.status(200)
+    .json({
         statusCode: 200,
         user,
         message: "Created user successsfully"
@@ -80,7 +73,21 @@ const loginUser = asyncHandler(async (req,res) => {
     const loggedInUser = await User.findById(user._id);
     console.log("User loggedIn")
 
-    return res.status(200).json({
+    const accessToken = jwt.sign({
+        userId : user._id,
+        email,
+        password,
+        fullName
+    },process.env.ACCESS_TOKEN_SECRET)
+
+    const action = {
+        httpOnly: true,
+        secure: true
+    }
+
+    return res.status(200)
+    .cookie("accessToken",accessToken,action)
+    .json({
         statusCode: 200,
         loggedInUser,
         message: "User is loggedIn"
@@ -116,8 +123,20 @@ const changePassword = asyncHandler( async (req, res) => {
     })
 })
 
+const logoutUser = asyncHandler( async (req, res) => {
+    const option = {
+        httpOnly: true,
+        secure: true
+    }
+
+    return res.status(200)
+    .clearCookie("accessToken",option)
+    .json( console.log("User successfully loggedOut") )
+})
+
 export {
     userRegister,
     loginUser,
-    changePassword
+    changePassword,
+    logoutUser
 }
