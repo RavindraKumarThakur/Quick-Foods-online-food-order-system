@@ -2,6 +2,7 @@ header {
     width: 100%;
     height: 5rem;
     position: sticky;
+    background-color: white;
     top: 0;
     box-shadow: 2px 0px 5px rgb(70, 70, 70);
 }
@@ -16,26 +17,27 @@ header > nav > div {
     width: 90%;
     margin: 0px auto;
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
 }
 
 .logo > img{
     width: 5rem;
+    margin: 10px;
 }
 
-#mobile-menu-2 > ul{
+.mobile-menu-2 > ul{
     display: flex;
     height: 100%;
     align-items: center;
+    position: static;
     gap: 40px;
     list-style: none;
     width: 20rem;
     text-decoration: none;
 }
 
-#mobile-menu-2 > ul > li > .menues{
+.mobile-menu-2 > ul > li > .menues{
     font-size: 15px;
     font-weight: 500;
     text-decoration: none;
@@ -68,8 +70,71 @@ header > nav > div {
     background-color: #d60202;
 }
 
+.hamburger{
+    background-color: #e90000;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin: 10px;
+    position: absolute;
+    right: 1.5rem;
+    top: 0.4rem;
+    display: none;
+    cursor: pointer;
+}
+
 @media (width < 1024px) {
-    #mobile-menu-2{
-        visibility: hidden;
+    .mobile-menu-2{
+        position: absolute;
+        top: 5rem;
+        right: 0;
+        width: 20rem;
+        background-color: white;
+        display: none;
+        cursor: default;
+        height: 100vh;
+    }
+
+    header > nav > div > div.open{
+        display: block;
+    }
+
+    .mobile-menu-2 > ul{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .mobile-menu-2 > ul > li{
+        width: 100%;
+        padding: 0.8rem;
+        border-radius: 10px;
+        background-color: white;
+        margin-top: 10px;
+    }
+    .menues{
+        text-align: left;
+        font-size: 17px;
+        width: 100%;
+        padding: 0.8rem;
+        border-radius: 10px;
+        background-color: white;
+    }
+
+    .mobile-menu-2 > ul > li > .menues:hover{
+        background-color: rgb(245, 245, 245);
+    }
+
+    header > nav > div{
+        width: 100%;
+    }
+    .authenticationBtn{
+        display: none;
+        position: fixed;
+        right: 5rem;
+        bottom: 3rem;
+    }
+    .hamburger{
+        display: block;
     }
 }
