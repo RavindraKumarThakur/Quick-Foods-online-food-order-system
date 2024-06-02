@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Header.css"
-import logo from "../../assets/Quick_Foods_Logo.png"
+import logo from "../../assets/Quick_Foods_Logo.png";
+import {ReactComponent as Menu} from "../../assets/hamburger.svg";
 import { Link ,NavLink } from "react-router-dom";
 
 
 function Header() {
+    const [navbar,setNavbar] = useState(false);
     return (
-        <header width="100%" bg-color="black" height="10vh">
+        <header>
             <nav>
                 <div>
                 <Link to="/" className = "logo">
@@ -15,8 +17,13 @@ function Header() {
                             alt="Logo"
                         />
                     </Link>
+                    <div className='hamburger' onClick={() => {
+                        setNavbar(!navbar)
+                        console.log("clicked",navbar)}}>
+                        <Menu />
+                    </div>
                     <div
-                        id="mobile-menu-2"
+                        className={navbar == true? "open mobile-menu-2" : "mobile-menu-2"}
                     >
                         <ul>
                             <li>
@@ -48,11 +55,11 @@ function Header() {
                             </li>
                         </ul>
                     </div>
-                    <div >
-                        <NavLink to="/login" className="loginBtn" style={({isActive}) => (isActive? {} : {})}>
+                    <div className={navbar == true? "open authenticationBtn" : "authenticationBtn"}>
+                        <NavLink to="/Login" className="loginBtn" style={({isActive}) => (isActive? {} : {})}>
                             Log In
                         </NavLink> 
-                        <NavLink to="/signup" className="signupBtn" style={({isActive}) => (isActive? {} : {})}>
+                        <NavLink to="/Signup" className="signupBtn" style={({isActive}) => (isActive? {} : {})}>
                             Sign Up
                         </NavLink> 
                     </div>
