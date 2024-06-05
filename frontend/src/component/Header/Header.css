@@ -37,6 +37,10 @@ header > nav > div {
     text-decoration: none;
 }
 
+.mobile-menu-2 > ul > li{
+    width: auto;
+}
+
 .mobile-menu-2 > ul > li > .menues{
     font-size: 15px;
     font-weight: 500;
@@ -86,16 +90,16 @@ header > nav > div {
     .mobile-menu-2{
         position: absolute;
         top: 5rem;
-        right: 0;
+        left: 0;
         width: 20rem;
         background-color: white;
-        display: none;
-        cursor: default;
-        height: 100vh;
+        height: calc(100vh - 5rem);
+        transform: translate(-100%);
+        transition: 0.3s;
     }
 
     header > nav > div > div.open{
-        display: block;
+        transform: translateX(0);
     }
 
     .mobile-menu-2 > ul{
@@ -129,12 +133,19 @@ header > nav > div {
         width: 100%;
     }
     .authenticationBtn{
-        display: none;
         position: fixed;
-        right: 5rem;
+        transform: translateX(-105%);
+        transition: 0.3s;
+        left: 1rem;
         bottom: 3rem;
     }
     .hamburger{
         display: block;
+    }
+}
+
+@media (width < 768px){
+    .mobile-menu-2{
+        width: 90%;
     }
 }

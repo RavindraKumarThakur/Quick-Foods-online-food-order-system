@@ -31,7 +31,7 @@ const userSchema = new Schema({
         enum: ['MALE','FEMALE','OTHERS'],
         default: 'MALE'
     }
-});
+},{timestamps:true});
 
 userSchema.pre("save", async function(next){
     if(!this.isModified("password")) return next()
