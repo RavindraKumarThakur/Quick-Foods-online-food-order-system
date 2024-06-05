@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .main{
     height: 6rem;
     width: 100%;
@@ -5,10 +6,28 @@
 }
 
 .content{
+=======
+header {
+    width: 100%;
+    height: 5rem;
+    position: sticky;
+    background-color: white;
+    top: 0;
+    box-shadow: 2px 0px 5px rgb(70, 70, 70);
+}
+
+header > nav {
+    height: 100%;
+    width: 100%;
+}
+
+header > nav > div {
+>>>>>>> 8eba6b98edb5084447cbc667ce6b16b6b20db4c8
     height: 100%;
     width: 90%;
     margin: 0px auto;
     display: flex;
+<<<<<<< HEAD
     justify-content: space-between;
     align-items: center;
 }
@@ -23,4 +42,137 @@
     list-style: none;
     margin: auto 0px;
     font-weight: 500;
+=======
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo > img{
+    width: 5rem;
+    margin: 10px;
+}
+
+.mobile-menu-2 > ul{
+    display: flex;
+    height: 100%;
+    align-items: center;
+    position: static;
+    gap: 40px;
+    list-style: none;
+    width: 20rem;
+    text-decoration: none;
+}
+
+.mobile-menu-2 > ul > li{
+    width: auto;
+}
+
+.mobile-menu-2 > ul > li > .menues{
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.loginBtn{
+    text-decoration: none;
+    color: gray;
+    font-weight: 500;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin: 0px 10px;
+}
+
+.loginBtn:hover {
+    background-color: rgb(230, 226, 226);
+}
+
+.signupBtn{
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin: 0px 10px;
+    background-color: #e90000;
+}
+
+.signupBtn:hover{
+    background-color: #d60202;
+}
+
+.hamburger{
+    background-color: #e90000;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin: 10px;
+    position: absolute;
+    right: 1.5rem;
+    top: 0.4rem;
+    display: none;
+    cursor: pointer;
+}
+
+@media (width < 1024px) {
+    .mobile-menu-2{
+        position: absolute;
+        top: 5rem;
+        left: 0;
+        width: 20rem;
+        background-color: white;
+        height: calc(100vh - 5rem);
+        transform: translate(-100%);
+        transition: 0.3s;
+    }
+
+    header > nav > div > div.open{
+        transform: translateX(0);
+    }
+
+    .mobile-menu-2 > ul{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .mobile-menu-2 > ul > li{
+        width: 100%;
+        padding: 0.8rem;
+        border-radius: 10px;
+        background-color: white;
+        margin-top: 10px;
+    }
+    .menues{
+        text-align: left;
+        font-size: 17px;
+        width: 100%;
+        padding: 0.8rem;
+        border-radius: 10px;
+        background-color: white;
+    }
+
+    .mobile-menu-2 > ul > li > .menues:hover{
+        background-color: rgb(245, 245, 245);
+    }
+
+    header > nav > div{
+        width: 100%;
+    }
+    .authenticationBtn{
+        position: fixed;
+        transform: translateX(-105%);
+        transition: 0.3s;
+        left: 1rem;
+        bottom: 3rem;
+    }
+    .hamburger{
+        display: block;
+    }
+}
+
+@media (width < 768px){
+    .mobile-menu-2{
+        width: 90%;
+    }
+>>>>>>> 8eba6b98edb5084447cbc667ce6b16b6b20db4c8
 }

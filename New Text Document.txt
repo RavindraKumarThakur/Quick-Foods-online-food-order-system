@@ -1,0 +1,3 @@
+git init // git enable
+
+git add <path of file> // git tracking enable
