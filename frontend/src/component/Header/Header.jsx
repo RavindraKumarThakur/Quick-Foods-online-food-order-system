@@ -11,7 +11,7 @@ function Header() {
         <header>
             <nav>
                 <div>
-                <Link to="/" className = "logo">
+                    <Link to="/" className = "logo">
                         <img
                             src={logo}
                             alt="Logo"
