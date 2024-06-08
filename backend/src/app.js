@@ -1,7 +1,8 @@
 import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
-import { router as userRouter } from "./route/user.routes.js";
+import { userRouter } from "./route/user.routes.js";
+import { foodRouter } from "./route/food.routes.js";
 
 const app = express();
 
@@ -15,5 +16,6 @@ app.use(bodyParser.json());
 
 
 app.use("/api/v1/users",userRouter);
+app.use("/api/v1/orders",foodRouter)
 
 export {app}

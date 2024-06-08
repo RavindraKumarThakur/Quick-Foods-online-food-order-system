@@ -23,7 +23,7 @@ function Header() {
                         <Menu />
                     </div>
                     <div
-                        className={navbar == true? "open mobile-menu-2" : "mobile-menu-2"}
+                        className={navbar? "open mobile-menu-2" : "mobile-menu-2"}
                     >
                         <ul>
                             <li>
@@ -55,7 +55,7 @@ function Header() {
                             </li>
                         </ul>
                     </div>
-                    <div className={navbar == true? "open authenticationBtn" : "authenticationBtn"}>
+                    <div className={navbar? "open authenticationBtn" : "authenticationBtn"}>
                         <NavLink to="/Login" className="loginBtn" style={({isActive}) => (isActive? {} : {})}>
                             Log In
                         </NavLink> 
