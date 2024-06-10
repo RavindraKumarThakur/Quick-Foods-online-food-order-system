@@ -16,7 +16,7 @@ const foodListRegister = asyncHandler( async (req,res) => {
     }
 
     const food = await Food.create({
-        image: foodImgLocalPath,
+        image:foodImgLocalPath,
         title,
         price,
         veg,
@@ -24,7 +24,7 @@ const foodListRegister = asyncHandler( async (req,res) => {
     })
 
     if (!food) {
-        throw new Error("Something went wrong while uploading the food list");
+        throw new Error("Something went wrong while uploading the food list.");
     }
 
     return res
