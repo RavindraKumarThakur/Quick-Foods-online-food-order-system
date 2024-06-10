@@ -5,3 +5,7 @@
 .env.test.local
 .env.production.local
 .env.local
+
+#node module for frontend
+./frontend/node_modules
+./backend/node_modules

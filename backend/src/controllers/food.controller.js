@@ -36,6 +36,12 @@ const foodListRegister = asyncHandler( async (req,res) => {
     })
 })
 
+const getAllFoods = asyncHandler(async (req,res) => {
+    const foodList = await Food.find({})
+    return res.status(200).json(foodList)
+})
+
 export {
-    foodListRegister
+    foodListRegister,
+    getAllFoods
 }
