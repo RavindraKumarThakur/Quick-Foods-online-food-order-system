@@ -1,5 +1,6 @@
 import { Food } from "../models/food.model.js";
 import { asyncHandler } from "./../utils/ayncHandler.js";
+import uploadOnCloudinary from "../utils/cloudinary.js";
 
 const foodListRegister = asyncHandler( async (req,res) => {
     const {title,price,veg,shopName} = req.body
@@ -9,14 +10,14 @@ const foodListRegister = asyncHandler( async (req,res) => {
     
     const foodImgLocalPath = req.file?.path;
     
-    console.log(foodImgLocalPath);
-    
     if (!foodImgLocalPath) {
         throw new Error("Couldn't find food image")
     }
 
+    const localPath = await uploadOnCloudinary(foodImgLocalPath)
+
     const food = await Food.create({
-        image:foodImgLocalPath,
+        image:localPath.url,
         title,
         price,
         veg,

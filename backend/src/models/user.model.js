@@ -26,6 +26,9 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
+    contact:{
+        type: Number
+    },
     gender:{
         type: String,
         enum: ['MALE','FEMALE','OTHERS'],
