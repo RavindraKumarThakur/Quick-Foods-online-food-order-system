@@ -10,6 +10,8 @@ import About_Us from './component/About_Us/About_Us.jsx';
 import Login from './component/Login/Login.jsx';
 import SignUp from './component/SignUp/SignUp.jsx';
 import Layout from './Layout.jsx';
+import { Provider } from 'react-redux';
+import { store } from './store/store.js';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -26,7 +28,9 @@ const router = createBrowserRouter(
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>,
 );
 

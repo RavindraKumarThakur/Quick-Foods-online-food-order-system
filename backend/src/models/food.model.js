@@ -22,6 +22,12 @@ const foodSchema = new mongoose.Schema({
     owner:{
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"
+    },
+    category:{
+        type: String
+    },
+    description: {
+        type: String
     }
 },{timestamps:true})
 
