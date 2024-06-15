@@ -1,9 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
+import Login from './component/Login/Login';
 
 function App() {
   return (
-    <header>This is heading</header>
+    <div>
+      <Login/>
+    </div>
   );
 }
 

@@ -1,4 +1,4 @@
-import { asyncHandler } from "../../../../Backend/MainProject/src/utils/asyncHandler.js";
+import { asyncHandler } from "../utils/ayncHandler.js";
 import { User } from "../models/user.model.js";
 import jwt from "jsonwebtoken";
 

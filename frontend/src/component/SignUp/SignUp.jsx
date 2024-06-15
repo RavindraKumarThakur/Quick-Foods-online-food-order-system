@@ -22,30 +22,7 @@ function SignUp(){
     }
 
     return(
-        <>
-            <form onSubmit={register} >
-                <label >UserName: </label>
-                <input type="text" name="username" />
-                <label >Email: </label>
-                <input type="email" name="email" />
-                <label >Address: </label>
-                <input type="text" name="address" />
-                <label >Pincode: </label>
-                <input type="text" name="pincode" />
-                <label >Fullname: </label>
-                <input type="text" name="fullname" /><br />
-                <label >Gender: </label><br />
-                <label >Male:</label>
-                <input type="radio" name="gender" value={"MALE"} />
-                <label >Female:</label>
-                <input type="radio" name="gender" value={"FEMALE"} />
-                <label >Others:</label>
-                <input type="radio" name="gender" value={"OTHERS"} /><br />
-                <label >Password: </label>
-                <input type="password" name="password" placeholder="more than 6 characters" /><br />
-                <button type="submit">Sign Up</button>
-            </form>
-        </>
+        <h1></h1>
     )
 }
 
