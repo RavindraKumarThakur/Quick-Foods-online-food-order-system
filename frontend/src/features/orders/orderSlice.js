@@ -11,7 +11,11 @@ const orderSlice = createSlice({
         addOrders: (state,action) => {
             const order = {
                 id: nanoid(),
-                name: action.payload
+                title: action.payload.title,
+                price: action.payload.price,
+                quantity: action.payload.quantity,
+                image: action.payload.image,
+                description: action.payload.description
             }
             state.orders.push(order)
         },

@@ -37,7 +37,7 @@ function Header() {
                             </li>
                             <li>
                                 <NavLink
-                                to="/About_Us"
+                                to="/aboutus"
                                 style={({isActive}) => (isActive? {color: "orangered"}: {color:"#3b3b3b"})}
                                 className= "menues"
                                 >
@@ -46,7 +46,7 @@ function Header() {
                             </li>
                             <li>
                                 <NavLink
-                                to="/Contact_Us"
+                                to="/contactus"
                                 style={({isActive}) => (isActive? {color: "orangered"}: {color:"#3b3b3b"})}
                                 className= "menues"
                                 >

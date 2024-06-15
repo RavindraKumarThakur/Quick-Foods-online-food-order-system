@@ -3,8 +3,8 @@ import { asyncHandler } from "./../utils/ayncHandler.js";
 import uploadOnCloudinary from "../utils/cloudinary.js";
 
 const foodListRegister = asyncHandler( async (req,res) => {
-    const {title,price,veg,shopName} = req.body
-    if ([title,price,veg,shopName].some((fields) => fields?.trim() === "")) {
+    const {title,price,veg,shopName,description,category} = req.body
+    if ([title,price,veg,shopName,description,category].some((fields) => fields?.trim() === "")) {
         throw new Error("All fields are required")
     }
     
@@ -20,8 +20,10 @@ const foodListRegister = asyncHandler( async (req,res) => {
         image:localPath.url,
         title,
         price,
-        veg,
-        shopName
+        veg,    
+        shopName,
+        description,
+        category
     })
 
     if (!food) {
