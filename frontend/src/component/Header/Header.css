@@ -1,12 +1,15 @@
-<<<<<<< HEAD
-.main{
-    height: 6rem;
+
+header {
+
     width: 100%;
-    background: rgb(244, 203, 81);
+    height: 5rem;
+    position: sticky;
+    background-color: white;
+    top: 0;
+    box-shadow: 2px 0px 5px rgb(70, 70, 70);
+    z-index: 1;
 }
 
-.content{
-=======
 header {
     width: 100%;
     height: 5rem;
@@ -16,33 +19,21 @@ header {
     box-shadow: 2px 0px 5px rgb(70, 70, 70);
 }
 
+
 header > nav {
     height: 100%;
     width: 100%;
 }
 
 header > nav > div {
->>>>>>> 8eba6b98edb5084447cbc667ce6b16b6b20db4c8
     height: 100%;
     width: 90%;
     margin: 0px auto;
     display: flex;
-<<<<<<< HEAD
+
     justify-content: space-between;
-    align-items: center;
-}
 
-.content > .logo-sec img{
-    width: 80px;
-}
 
-.menues{
-    display: flex;
-    gap: 30px;
-    list-style: none;
-    margin: auto 0px;
-    font-weight: 500;
-=======
     align-items: center;
     justify-content: space-between;
 }
@@ -70,6 +61,34 @@ header > nav > div {
 .mobile-menu-2 > ul > li > .menues{
     font-size: 15px;
     font-weight: 500;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo > img{
+    width: 5rem;
+    margin: 10px;
+}
+
+.mobile-menu-2 > ul{
+    display: flex;
+    height: 100%;
+    align-items: center;
+    position: static;
+    gap: 40px;
+    list-style: none;
+    width: 20rem;
+    text-decoration: none;
+}
+
+.mobile-menu-2 > ul > li{
+    width: auto;
+}
+
+.mobile-menu-2 > ul > li > .menues{
+    font-size: 15px;
+    font-weight: 500;
+
     text-decoration: none;
 }
 
@@ -135,24 +154,27 @@ header > nav > div {
         gap: 10px;
     }
 
-    .mobile-menu-2 > ul > li{
+    .mobile-menu-2 > ul > li {
         width: 100%;
-        padding: 0.8rem;
         border-radius: 10px;
         background-color: white;
+        cursor: pointer;box-sizing: unset;
         margin-top: 10px;
     }
-    .menues{
-        text-align: left;
-        font-size: 17px;
+    .mobile-menu-2 > ul > li > .menues {
+        font-size: 15px;
+        font-weight: 500;
         width: 100%;
-        padding: 0.8rem;
-        border-radius: 10px;
-        background-color: white;
+        text-decoration: none;
+        display: block;
+        background: white;
+        padding: 13px;
+        border-radius: 5px;
     }
 
     .mobile-menu-2 > ul > li > .menues:hover{
         background-color: rgb(245, 245, 245);
+        width: 20rem;
     }
 
     header > nav > div{
@@ -174,5 +196,5 @@ header > nav > div {
     .mobile-menu-2{
         width: 90%;
     }
->>>>>>> 8eba6b98edb5084447cbc667ce6b16b6b20db4c8
+
 }
