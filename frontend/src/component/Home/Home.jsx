@@ -5,7 +5,7 @@ import veg_icon from "../../assets/veg_icon.png";
 import non_veg_icon from "../../assets/non_veg_icon.png";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { addOrders } from "../../features/orders/orderSlice";
+import { addOrders, sendOrders } from "../../features/orders/orderSlice";
 
 function Home(){
 
@@ -30,7 +30,8 @@ function Home(){
         }
         console.log(object);
         dispatch(addOrders(object))
-        navigate("/orders");
+        dispatch(sendOrders(object))
+        navigate("/orders",{state:{title:object.title}});
     }
     return(
         <div className="main">
