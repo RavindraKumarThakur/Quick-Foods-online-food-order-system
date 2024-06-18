@@ -23,7 +23,7 @@ function Header() {
                         <Menu />
                     </div>
                     <div
-                        className={navbar? "open mobile-menu-2" : "mobile-menu-2"}
+                        className={navbar === true? "open mobile-menu-2" : "mobile-menu-2"}
                     >
                         <ul>
                             <li>
@@ -37,7 +37,7 @@ function Header() {
                             </li>
                             <li>
                                 <NavLink
-                                to="/aboutus"
+                                to="/About_Us"
                                 style={({isActive}) => (isActive? {color: "orangered"}: {color:"#3b3b3b"})}
                                 className= "menues"
                                 >
@@ -46,7 +46,7 @@ function Header() {
                             </li>
                             <li>
                                 <NavLink
-                                to="/contactus"
+                                to="/Contact_Us"
                                 style={({isActive}) => (isActive? {color: "orangered"}: {color:"#3b3b3b"})}
                                 className= "menues"
                                 >
@@ -55,7 +55,7 @@ function Header() {
                             </li>
                         </ul>
                     </div>
-                    <div className={navbar? "open authenticationBtn" : "authenticationBtn"}>
+                    <div className={navbar === true? "open authenticationBtn" : "authenticationBtn"}>
                         <NavLink to="/Login" className="loginBtn" style={({isActive}) => (isActive? {} : {})}>
                             Log In
                         </NavLink> 
@@ -66,6 +66,10 @@ function Header() {
                 </div>
             </nav>
         </header>
+
+            
+        
+
     )
 }
 

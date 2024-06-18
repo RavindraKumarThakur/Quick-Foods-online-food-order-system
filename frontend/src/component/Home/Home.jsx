@@ -1,3 +1,8 @@
+
+// import React from "react";
+
+import "./Home.css";
+
 import React, { useEffect, useState } from "react";
 import "./Home.css";
 import axios from "axios";
@@ -6,6 +11,7 @@ import non_veg_icon from "../../assets/non_veg_icon.png";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addOrders, sendOrders } from "../../features/orders/orderSlice";
+
 
 function Home(){
 
