@@ -2,6 +2,7 @@
 // import React from "react";
 
 import "./Home.css";
+import AppDownload from "../AppDownload/AppDownload";
 
 import React, { useEffect, useState } from "react";
 import "./Home.css";
@@ -65,6 +66,7 @@ function Home(){
                 <div className="virtual-card"></div>
                 <div className="virtual-card"></div>
             </ul>
+            <AppDownload/>
         </div>
     )
 }
