@@ -60,27 +60,37 @@ const loginUser = asyncHandler(async (req,res) => {
     const user = await User.findOne({email});
 
     if (!user) {
-        throw console.log("User do not exist");
+        return res
+        .status(401)
+        .json({
+            status: 401,
+            message: "User do not exist."
+        })
     }
 
     const isValidPassword = await user.isPasswordCorrect(password);
 
     if(!isValidPassword){
-        throw console.log("Password is incorrect")
+        return res
+        .status(200)
+        .json({
+            status: 200,
+            message: "Password is wrong."
+        })
     }
 
     const loggedInUser = await User.findById(user._id);
     console.log("User loggedIn")
 
     const accessToken = jwt.sign({
-        userId : user._id,
+        _id : user._id,
         email,
         password
     },process.env.ACCESS_TOKEN_SECRET)
 
     const action = {
         httpOnly: true,
-        secure: true
+        // secure: true,
     }
 
     return res.status(200)
@@ -88,7 +98,8 @@ const loginUser = asyncHandler(async (req,res) => {
     .json({
         statusCode: 200,
         loggedInUser,
-        message: "User is loggedIn"
+        message: "User is loggedIn",
+        accessToken
     })
 
 })

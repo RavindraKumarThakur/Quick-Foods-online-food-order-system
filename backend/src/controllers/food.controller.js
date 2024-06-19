@@ -41,6 +41,7 @@ const foodListRegister = asyncHandler( async (req,res) => {
 
 const getAllFoods = asyncHandler(async (req,res) => {
     const foodList = await Food.find({}).select("-createdAt -updatedAt")
+    // console.log(req.cookie?.accessToken);
     return res.status(200).json(foodList)
 })
 

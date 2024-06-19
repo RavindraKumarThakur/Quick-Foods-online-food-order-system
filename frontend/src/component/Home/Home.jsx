@@ -19,9 +19,8 @@ function Home(){
 
     const [orders,setOrders] = useState([])
     useEffect(() => {
-        axios.get("http://localhost:8000/api/v1/orders/getAllFoods").then((response) => setOrders(response.data));
+        axios.get("http://localhost:8000/api/v1/foods/getAllFoods").then((response) => setOrders(response.data));
         },[])
-    console.log(orders)
 
     const dispatch = useDispatch();
 
@@ -32,6 +31,7 @@ function Home(){
             price:e.target.getAttribute('price'),
             image:e.target.getAttribute('image'),
             description:e.target.getAttribute('description'),
+            _id:e.target.getAttribute('_id'),
             quantity: 1
         }
         console.log(object);
@@ -56,7 +56,7 @@ function Home(){
                         </p>
                     </div>
                     <span className="veg-icon"><img src={order.veg?veg_icon:non_veg_icon} alt="" /></span>
-                    <div className="order_btn" title={order.title} price={order.price} image={order.image} description={order.description} onClick={orderFood}>
+                    <div className="order_btn" title={order.title} price={order.price} image={order.image} description={order.description} _id={order._id} onClick={orderFood}>
                         Order
                     </div>
                 </li>))}

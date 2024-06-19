@@ -3,8 +3,7 @@ import { User } from "../models/user.model.js";
 
 export const verifyJWT = async (req,res,next) => {
 try {
-        const token = req.cookies?.accessToken || req.headers('Authorization').split(" ")[1]
-    
+        const token = req.body.accessToken
         if (!token) {
             throw console.log("Unauthorized request");
         }
@@ -17,7 +16,7 @@ try {
             throw new Error("Unauthorized user");
         }
          req.user = user
-         next()
+        next()
 } catch (error) {
     throw new Error( error?.message || "Unauthorized request" );
 }

@@ -1,7 +1,6 @@
 import { Router } from "express";
 import { upload } from "../middleware/multer.middleware.js";
 import { foodListRegister, getAllFoods } from "../controllers/food.controller.js";
-import multer from "multer";
 
 const foodRouter = Router()
 
