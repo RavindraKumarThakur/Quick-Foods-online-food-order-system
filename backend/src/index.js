@@ -1,6 +1,5 @@
 import dbconnect from "./db/dbconnect.js";
 import dotenv from "dotenv";
-import { router } from "./route/user.routes.js";
 import { app } from "./app.js";
 
 dotenv.config({

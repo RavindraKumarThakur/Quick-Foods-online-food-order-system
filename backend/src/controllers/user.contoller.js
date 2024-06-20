@@ -4,13 +4,13 @@ import jwt from "jsonwebtoken";
 
 const userRegister = asyncHandler(async (req, res) => {
 
-    const {userName,email,password,address,pincode,fullName,gender} = req.body
+    const {userName,email,password,address,pincode,fullName,gender,contact} = req.body
 
     // console.log("Email: ",email);
     // console.log(req);
 
     if(
-        [userName,email,password,address,pincode,fullName,gender].some((fields) => fields?.trim() === "")
+        [userName,email,password,address,pincode,fullName,gender,contact].some((fields) => fields?.trim() === "")
     ){
         throw console.log("All fields are required");
     }else if(!(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/).test(email)) {
@@ -27,7 +27,7 @@ const userRegister = asyncHandler(async (req, res) => {
         throw console.log(`User already existed`);
     }
 
-    console.log(`${userName},${email},${password},${address},${pincode},${fullName}`);
+    console.log(`${userName},${email},${password},${address},${pincode},${fullName},${contact}`);
 
     const user = await User.create({
         userName,
@@ -36,7 +36,8 @@ const userRegister = asyncHandler(async (req, res) => {
         address,
         fullName,
         pincode,
-        gender
+        gender,
+        contact
     })
 
     return res.status(200)
@@ -54,8 +55,6 @@ const loginUser = asyncHandler(async (req,res) => {
         throw console.log("All fields are neccessary");
     }else if(!(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/).test(email)) {
         throw console.log(`Please enter valid email address`);
-    }else if(password.length <= 6 || password.length >= 15){
-        throw console.log(`Password should be less than 15 characters or greater than 6 characters`);
     }
 
     const user = await User.findOne({email});
@@ -76,8 +75,7 @@ const loginUser = asyncHandler(async (req,res) => {
     const accessToken = jwt.sign({
         userId : user._id,
         email,
-        password,
-        fullName
+        password
     },process.env.ACCESS_TOKEN_SECRET)
 
     const action = {

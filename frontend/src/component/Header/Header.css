@@ -5,6 +5,7 @@ header {
     background-color: white;
     top: 0;
     box-shadow: 2px 0px 5px rgb(70, 70, 70);
+    z-index: 1;
 }
 
 header > nav {
@@ -109,24 +110,27 @@ header > nav > div {
         gap: 10px;
     }
 
-    .mobile-menu-2 > ul > li{
+    .mobile-menu-2 > ul > li {
         width: 100%;
-        padding: 0.8rem;
         border-radius: 10px;
         background-color: white;
+        cursor: pointer;box-sizing: unset;
         margin-top: 10px;
     }
-    .menues{
-        text-align: left;
-        font-size: 17px;
+    .mobile-menu-2 > ul > li > .menues {
+        font-size: 15px;
+        font-weight: 500;
         width: 100%;
-        padding: 0.8rem;
-        border-radius: 10px;
-        background-color: white;
+        text-decoration: none;
+        display: block;
+        background: white;
+        padding: 13px;
+        border-radius: 5px;
     }
 
     .mobile-menu-2 > ul > li > .menues:hover{
         background-color: rgb(245, 245, 245);
+        width: 20rem;
     }
 
     header > nav > div{
