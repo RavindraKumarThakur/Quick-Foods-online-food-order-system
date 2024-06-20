@@ -21,6 +21,6 @@ app.use(bodyParser.json());
 
 app.use("/api/v1/users",userRouter);
 app.use("/api/v1/foods",foodRouter);
-app.use("/api/v1/orders",orderRouter);
+app.use("/api/v1/orders",orderRouter)
 
 export {app}

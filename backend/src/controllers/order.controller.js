@@ -1,29 +1,30 @@
-import { Order } from "../models/order.model.js";
 import { asyncHandler } from "../utils/ayncHandler.js";
+import { Order } from "../models/order.model.js";
 
-const addOrder = asyncHandler( async (req, res) => {
+const addOrders = asyncHandler( async (req,res) => {
     const {title,orderId,totalPrice,quantity} = req.body
-    if ([title,orderId,totalPrice,quantity].some((fields) => fields?.trim() === "")) {
+    if ([title, orderId,totalPrice, quantity].some((fields) => fields === "")) {
         throw console.log("All fields are required.");
     }
 
     const order = await Order.create({
         title,
-        orderId,
         totalPrice,
+        orderId,
         quantity
     })
+
     if (!order) {
-        throw console.log("Error occurred while creating order.");
+        throw console.log("Error occured while creating order");
     }
 
     return res.status(200).json({
         status:200,
         order,
-        message: "Successfully Ordered"
+        message: "Successfully ordered"
     })
 })
 
 export {
-    addOrder
+    addOrders
 }

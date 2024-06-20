@@ -1,8 +1,8 @@
 import { Router } from "express";
-import { addOrder } from "../controllers/order.controller.js";
+import { addOrders } from "../controllers/order.controller.js";
 
-const orderRouter = Router()
+const orderRouter = Router();
 
-orderRouter.route("/addOrders").post(addOrder);
+orderRouter.post("/addOrders",addOrders);
 
 export {orderRouter}

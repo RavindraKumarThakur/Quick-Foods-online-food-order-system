@@ -4,6 +4,7 @@ import { User } from "../models/user.model.js";
 export const verifyJWT = async (req,res,next) => {
 try {
         const token = req.body.accessToken
+        console.log(token);
         if (!token) {
             throw console.log("Unauthorized request");
         }

@@ -14,8 +14,7 @@ function CheckOutOrder(){
         const tokenData = checkAccessToken()
         if(!tokenData){
             navigate("/Login")
-        }
-            
+        }           
     })
 
     const singleOrder = useSelector(state => state.singleOrder)
@@ -31,20 +30,20 @@ function CheckOutOrder(){
         if(orderQuantity > 0) setQuantity(orderQuantity - 1)
     }
 
-    const handleConfirm = (e) => {
+    //Sending order to request
+    const handleOrder = () => {
         const data = {
             title: singleOrder.title,
             orderId: singleOrder._id,
-            totalPrice: quantity * singleOrder.price,
-            quantity: quantity,
-            accessToken: localStorage.getItem("accessToken")
+            totalPrice: orderQuantity * singleOrder.price,
+            quantity: orderQuantity
         }
-
         axios.post("http://localhost:8000/api/v1/orders/addOrders",data)
-        .then((res) => console.log(res.data))
+        .then((res) => console.log("Success: ",res))
         .catch((err) => console.log("Error: ",err))
         navigate("/")
     }
+
 
     return(
         <div className="checkOutMain">
@@ -59,7 +58,7 @@ function CheckOutOrder(){
                         <input type="number" name="quantity" value={quantity} onChange={e => setQuantity(e.target.value)} min="1" className="quantity"/>
                         <button type="button" onClick={increaseAmount} className="plusBtn"><img src={assets.plusIcon} alt=""/></button>
                         </div>
-                        <button className="confirmOrder" onClick={handleConfirm} >Confirm Order</button>
+                        <button className="confirmOrder" onClick={handleOrder}>Confirm Order</button>
                         <button className="cancelOrder">Cancel</button>
                     </div>
                 </div>
