@@ -1,6 +1,6 @@
 .checkOutMain{
     background-color: rgb(232, 232, 232);
-    min-height: 90vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -39,6 +39,11 @@
 .singledescription{
     font-size: 18px;
     font-weight: 500;
+}
+.orderPrice{
+    padding: 0.5rem 0;
+    font-size: larger;
+    font-weight: bold;
 }
 .number-input {
     display: flex;
@@ -141,6 +146,43 @@
 .cancelOrder:hover{
     background-color: rgb(197, 197, 197);
     border: none;
+}
+
+.confirmMessage{
+    max-width: 40rem;
+    min-width: 25rem;
+    align-self: center;
+    justify-self: center;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: justify;
+}
+.confirmMessage::backdrop{
+    background-color: rgb(0 0 0/ .4);
+    opacity: 0.8;
+    box-shadow: 0 0 1em rgb(0 0 0 / .3);
+}
+.confirmMessage > div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    align-items: center;
+}
+.confirmMessage > div > p{
+    font-size: 20px;
+    font-weight: bolder;
+}
+.confirmMessage > div > button{
+    padding: .5rem 1rem;
+    width: 8rem;
+    background-color: rgb(4, 183, 10);
+    margin: 10px auto;
+    justify-self: center;
+    border-radius: 10px;
+    font-size: larger;
+    font-weight: bold;
+    color: white;
 }
 
 @media (width < 1024px) {
