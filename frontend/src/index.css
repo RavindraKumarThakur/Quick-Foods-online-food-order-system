@@ -1,3 +1,18 @@
+<<<<<<< HEAD
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+=======
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+>>>>>>> d1479c247aff130c3af50970860fae917ebbae36
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
