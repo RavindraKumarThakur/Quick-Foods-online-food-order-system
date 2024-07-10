@@ -1,8 +1,187 @@
 .checkOutMain{
     background-color: rgb(232, 232, 232);
-    height: 90vh;
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .orderCard{
-    width: 80%;
+    border-radius: 20px;
+    max-width: 80%;
+    width: auto;
+    background-color: white;
+    padding: 40px;
+    margin-bottom: 5rem;
+    margin-top: 5rem;
+}
+
+.infoCard{
+    display: flex;
+}
+.foodimage{
+    height: 20rem;
+    width: 30rem;
+    border-radius: 10px;
+}
+.singlefoodinfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: left;
+    padding: 10px;
+}
+.title{
+    font-size: 30px;
+    font-weight: bold;
+    text-align: left;
+}
+.singledescription{
+    font-size: 18px;
+    font-weight: 500;
+}
+.number-input {
+    display: flex;
+    align-items: center;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    margin: 10px auto;
+}
+.number-input button {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+}
+.number-input input {
+    width: 60px;
+    text-align: center;
+}
+.minusBtn{
+    border: none;
+    outline: none;
+    background-color: red;
+    height: 1rem;
+    width: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    border-radius: 50%;
+}
+
+.plusBtn{
+    border: none;
+    outline: none;
+    background-color: green;
+    height: 1rem;
+    width: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    border-radius: 50%;
+}
+
+.minusBtn> img{
+    width: 1.2rem;
+}
+.plusBtn > img{
+    width: 1.5rem;
+}
+
+.quantity{
+    border: none;
+    outline: none;
+    font-size: larger;
+    font-weight: bold;
+    color: rgb(69, 69, 69);
+    width: 2rem;
+}
+
+.quantity::-webkit-outer-spin-button,
+.quantity::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.confirmOrder{
+    width: 95%;
+    padding: 0.8rem;
+    background-color: orangered;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    margin: 5px auto;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    color: rgb(236, 236, 236);
+}
+.confirmOrder:hover{
+    background-color: rgb(194, 52, 0);
+}
+
+.cancelOrder{
+    width: 95%;
+    padding: 0.8rem;
+    background-color: rgb(236, 236, 236);
+    border: 0.5px solid gray;
+    outline: none;
+    border-radius: 5px;
+    margin: 5px auto;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    color: rgb(79, 79, 79);
+}
+
+.cancelOrder:hover{
+    background-color: rgb(197, 197, 197);
+    border: none;
+}
+
+@media (width < 1024px) {
+    .infoCard{
+        display: flex;
+        flex-direction: column;
+    }
+    .singlefoodinfo{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: start;
+        gap: 15px;
+        padding: 5px;
+    }
+}
+
+@media (width < 768px){
+    .foodimage{
+        width: 100%;
+        height: 10rem;
+        border-radius: 10px;
+    }
+    .orderCard{
+        padding: 20px;
+    }
+}
+
+@media (width < 375px){
+    .foodimage{
+        width: 100%;
+        height: 7rem;
+        border-radius: 10px;
+    }
+    .title{
+        font-size: 23px;
+        font-weight: bold;
+        text-align: left;
+    }
+    .singledescription{
+        font-size: 15px;
+        font-weight: 500;
+    }
 }

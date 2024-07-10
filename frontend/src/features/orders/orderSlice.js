@@ -1,7 +1,8 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit";
 
 const initialState = {
-    orders: []
+    orders: [],
+    singleOrder: {}
 }
 
 const orderSlice = createSlice({
@@ -19,12 +20,15 @@ const orderSlice = createSlice({
             }
             state.orders.push(order)
         },
+        sendOrders: (state,action) => {
+            state.singleOrder = action.payload
+        },
         removeOrders: (state,action) => {
             state.orders = state.orders.filter((order) => order.id !== action.payload)
         }
     }
 })
 
-export const {addOrders, removeOrders} = orderSlice.actions
+export const {addOrders, removeOrders, sendOrders} = orderSlice.actions
 
 export default orderSlice.reducer
