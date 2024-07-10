@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-<<<<<<< HEAD
-import './SignUp.css';
-=======
 import { useNavigate } from "react-router-dom";
->>>>>>> d1479c247aff130c3af50970860fae917ebbae36
 
 function SignUp(){
   const [success,setSuccess] = useState({});
@@ -44,74 +40,6 @@ function SignUp(){
         
     }
 
-<<<<<<< HEAD
-    return(
-        
-          /*  <form onSubmit={register} >
-                <label >UserName: </label>
-                <input type="text" name="username" />
-                <label >Email: </label>
-                <input type="email" name="email" />
-                <label >Address: </label>
-                <input type="text" name="address" />
-                <label >Pincode: </label>
-                <input type="text" name="pincode" />
-                <label >Fullname: </label>
-                <input type="text" name="fullname" /><br />
-                <label >Gender: </label><br />
-                <label >Male:</label>
-                <input type="radio" name="gender" value={"MALE"} />
-                <label >Female:</label>
-                <input type="radio" name="gender" value={"FEMALE"} />
-                <label >Others:</label>
-                <input type="radio" name="gender" value={"OTHERS"} /><br />
-                <label >Password: </label>
-                <input type="password" name="password" placeholder="more than 6 characters" /><br />
-                <button type="submit">Sign Up</button>
-            </form> */
-        
-
-        
-      <div className='form-box sign-up'>
-
-      <form action="">
-        <h1>Sign up</h1>
-
-        <div className='input-box'>
-          <input type="text" placeholder='Username' required />
-        </div>
-
-        <div className='input-box'>
-          <input type="email" placeholder='Email' required />
-        </div>
-
-        <div className='input-box'>
-          <input type="text" placeholder='Address' required />
-        </div>
-
-        <div className='input-box'>
-          <input type="number" placeholder='Pincode' min={0} required />
-        </div>
-
-        <div className='input-box'>
-          <input type="tel" pattern="[+0-9]{3}-[0-9]{2}-[0-9]{3}" placeholder='Mobile number' maxLength={13} required />
-        </div>
-
-        <div className="input-box">
-          <input type="password" placeholder='Password' maxLength={8} required />
-        </div>
-
-        <div className="remember-forgot">
-          <label><input type="checkbox" />I agree to Quick Foods Privacy Policy</label>
-        </div>
-
-        <button type='submit'>Sign up</button>
-
-      </form>
-    </div>
-
-    )
-=======
     return (
         <div className="flex flex-col items-center justify-center h-fit bg-slate-200">
         <div className="w-full max-w-md bg-white rounded-lg shadow-md p-6 m-8">
@@ -132,14 +60,13 @@ function SignUp(){
               <option value="FEMALE">Female</option>
               <option value="OTHER">Other</option>
             </select>
-            <p className="text-gray-900 mt-4"> Already have an account? <a className="text-sm text-blue-500 -200 hover:underline mt-4" href="#">Login</a></p>
+            <p className="text-gray-900 mt-4"> Already have an account? <a className="text-sm text-blue-500 -200 hover:underline mt-4" href="/Login">Login</a></p>
             <button className="bg-gradient-to-r from-indigo-500 to-blue-500 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-indigo-600 hover:to-blue-600 transition ease-in-out duration-150" type="submit">Sign Up</button>
           </form>
         </div>
       </div>
       
     );
->>>>>>> d1479c247aff130c3af50970860fae917ebbae36
 }
 
 export default SignUp
