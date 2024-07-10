@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="footer-content">
             <div className="footer-content-left">
                <img src={assets.logo} alt="" />
-               <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+               <p>A Quick Foods is a platform that allows users to browse menus, select dishes, and place order for delivery or pickup from various restaurants or food establishments.It typically includes features like user registration, restaurant listings with menus and reviews, order placement and tracking, secure payment options, customer support, and mobile optimization. Admin tool manage menus, order, and analytics.The goal is to provide a seamless, convenient experience for customers to enjoy food from a variety of eateries.</p>
                <div className="footer-social-icons">
                 <img src={assets.facebook_icon} alt="error" />
                 <img src={assets.meta_icon} alt="error" />
@@ -29,12 +29,12 @@ const Footer = () => {
                <h2>GET IN TOUCH</h2>
                <ul>
                 <li>+91-2121-2121-2121</li>
-                <li>contact@foodaur.com</li>
+                <li>contact@quickfoods.com</li>
                </ul>
             </div>
         </div>
            <hr/>
-           <p className="footer-copyright">Copyright 2024 © Foodaur.com - All Rights are Reserved. </p>
+           <p className="footer-copyright">Copyright 2024 © QuickFoods.com - All Rights are Reserved. </p>
     </div>
   )
 }

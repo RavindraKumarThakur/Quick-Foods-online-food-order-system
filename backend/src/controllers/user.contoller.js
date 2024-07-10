@@ -24,7 +24,10 @@ const userRegister = asyncHandler(async (req, res) => {
     // console.log(userExisted);
 
     if(userExisted){
-        throw console.log(`User already existed`);
+        return res.status(404).json({
+            status:404,
+            message:"User already existed!!!"
+        })
     }
 
     console.log(`${userName},${email},${password},${address},${pincode},${fullName},${contact}`);

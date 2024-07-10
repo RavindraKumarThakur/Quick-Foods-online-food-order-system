@@ -43,6 +43,7 @@
     ]
   },
   "devDependencies": {
+    "tailwindcss": "^3.4.4",
     "url-loader": "^4.1.1"
   }
 }
