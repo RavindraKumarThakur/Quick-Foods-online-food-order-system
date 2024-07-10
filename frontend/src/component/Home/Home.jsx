@@ -65,6 +65,7 @@ function Home(){
                 <div className="virtual-card"></div>
                 <div className="virtual-card"></div>
             </ul>
+            
         </div>
     )
 }

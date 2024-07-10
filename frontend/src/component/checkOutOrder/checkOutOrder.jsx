@@ -66,7 +66,7 @@ function CheckOutOrder(){
                         <button type="button" onClick={increaseAmount} className="plusBtn"><img src={assets.plusIcon} alt=""/></button>
                         </div>
                         <button className="confirmOrder" onClick={openDialog}>Confirm Order</button>
-                        <button className="cancelOrder">Cancel</button>
+                        <button className="cancelOrder" onClick={(e) => navigate('/')}>Cancel</button>
                     </div>
                 </div>
             </div>
