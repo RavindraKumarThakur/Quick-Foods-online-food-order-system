@@ -9,14 +9,15 @@ import veg_icon from "../../assets/veg_icon.png";
 import non_veg_icon from "../../assets/non_veg_icon.png";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import background from "../../assets/Quick_background.png";
 import { addOrders, sendOrders } from "../../features/orders/orderSlice";
 
 
-function Home(){
+function Home() {
 
     const navigate = useNavigate()
 
-    const [orders,setOrders] = useState([])
+    const [orders, setOrders] = useState([])
     useEffect(() => {
         axios.get("http://localhost:8000/api/v1/foods/getAllFoods").then((response) => setOrders(response.data));
         },[])
@@ -38,8 +39,17 @@ function Home(){
         dispatch(sendOrders(object))
         navigate("/orders",{state:{title:object.title}});
     }
-    return(
+    return (
         <div className="main">
+
+            <div className="header">
+                <div className="header-contents">
+                    <h2>Order your favourite food here</h2>
+                    <p>Choose from diverse menu featuring a delectable array of dishes crafted with the finest ingredient and culinary expertise. Our mission is to satisfy your cravings and elevate your dining experiance, one delicious meal at a time.</p>
+                    <button>View Menu</button>
+                </div>
+            </div>
+
             <ul className="foodList">
                 {orders.map((order) => (<li key={order._id} className="foodCards">
                     <div className="foodImage">
@@ -51,7 +61,7 @@ function Home(){
                     </div>
                     <div className="description">
                         <p>
-                        {order.description}
+                            {order.description}
                         </p>
                     </div>
                     <span className="veg-icon"><img src={order.veg?veg_icon:non_veg_icon} alt="" /></span>

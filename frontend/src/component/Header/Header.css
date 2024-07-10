@@ -17,6 +17,7 @@ header {
     background-color: white;
     top: 0;
     box-shadow: 2px 0px 5px rgb(70, 70, 70);
+    z-index: 1;
 }
 
 

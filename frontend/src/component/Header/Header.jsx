@@ -48,7 +48,7 @@ function Header() {
                         <Menu />
                     </div>
                     <div
-                        className={navbar === true? "open mobile-menu-2" : "mobile-menu-2"}
+                        className={navbar? "open mobile-menu-2" : "mobile-menu-2"}
                     >
                         <ul>
                             <li>
