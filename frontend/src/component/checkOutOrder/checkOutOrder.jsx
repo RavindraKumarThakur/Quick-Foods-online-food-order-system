@@ -32,6 +32,10 @@ function CheckOutOrder(){
     }
 
     //Sending order to request
+    const openDialog = () => {
+        dialogRef.current.showModal()
+    }
+
     const handleOrder = () => {
         const data = {
             title: singleOrder.title,
@@ -39,16 +43,53 @@ function CheckOutOrder(){
             totalPrice: orderQuantity * singleOrder.price,
             quantity: orderQuantity
         }
+
+        //Handling Payment
+        axios.post("http://localhost:8000/api/v1/orders/payments/receivePayments",{amount: data.totalPrice})
+        .then((res) => {
+            console.log(res.data)
+            initPayment(res.data.data)
+        })
+        .catch((err) => console.log(err))
+
+        //Adding orders
         axios.post("http://localhost:8000/api/v1/orders/addOrders",data)
         .then((res) => console.log("Success: ",res))
         .catch((err) => console.log("Error: ",err))
-        navigate('/')
         dialogRef.current.close()
     }
-    const openDialog = () => {
-        dialogRef.current.showModal()
-    }
 
+    //Verifying payment
+    const initPayment = (data) => {
+        const option = {
+            key: "rzp_test_G5hukZD6i0hd2L",
+            amount: data.amount,
+            currency: data.currency,
+            name: singleOrder.title,
+            description: "Test transaction",
+            image: singleOrder.image,
+            order_id: data.id,
+            handler: (response) => {
+                try {
+                    axios.post("http://localhost:8000/api/v1/orders/payments/verifyPayment",response)
+                    .then((res) => {
+                        console.log(res.data);
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                    })
+                } catch (error) {
+                    console.log(error);
+                }
+            },
+            theme: {
+                color: "#3399cc"
+            }
+        }
+        const rzp = new window.Razorpay(option)
+        rzp.open()
+        navigate('/')
+    }
 
     return(
         <>
