@@ -85,7 +85,7 @@ function Login() {
           </div>
           <p className="signup">
             Don't have an account?
-            <a rel="noopener noreferrer" href="#" className="">
+            <a rel="noopener noreferrer" href="/Signup" className="">
               Sign up
             </a>
           </p>
