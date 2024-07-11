@@ -1,6 +1,4 @@
 
-// import React from "react";
-
 import "./Home.css";
 import React, { useEffect, useState } from "react";
 import "./Home.css";
@@ -12,9 +10,7 @@ import { useDispatch } from "react-redux";
 import background from "../../assets/Quick_background.png";
 import { addOrders, sendOrders } from "../../features/orders/orderSlice";
 
-
-function Home() {
-
+function Home(){
     const navigate = useNavigate()
 
     const [orders, setOrders] = useState([])
@@ -77,7 +73,7 @@ function Home() {
             </ul>
             
         </div>
-    )
+    )  
 }
 
 export default Home
