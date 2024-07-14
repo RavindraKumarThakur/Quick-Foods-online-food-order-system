@@ -98,6 +98,13 @@ function CheckOutOrder(){
                 <div className="infoCard">
                     <img src={singleOrder.image} className="foodimage" alt=""/>
                     <div className="singlefoodinfo">
+                        <div className="flex gap-1">
+                        <span><img src={assets.star} width={"15px"}/></span>
+                        <span><img src={assets.star} width={"15px"}/></span>
+                        <span><img src={assets.star} width={"15px"}/></span>
+                        <span><img src={assets.star} width={"15px"}/></span>
+                        <span><img src={assets.star} width={"15px"}/></span>
+                        </div>
                         <p className="title">{singleOrder.title}</p>
                         <p className="singledescription">{singleOrder.description}</p>
                         <p className="orderPrice">&#8377;{orderQuantity * singleOrder.price}/-</p>
@@ -114,9 +121,14 @@ function CheckOutOrder(){
         </div>
         <dialog ref={dialogRef} className="confirmMessage">
             <div>
-                <p>Thanks for Ordering</p>
-                <p>!!!Please confirm your order!!!</p>
-                <button onClick={handleOrder}>Confirm</button>
+                <img src={singleOrder.image} alt="" className="paymentImg"/>
+                <p className="paymentName">{singleOrder.title}</p>
+                <p className="paymentQuantity paymentDes">{singleOrder.description}</p>
+                <p className="paymentQuantity">Quantity: {orderQuantity}</p>
+                <p className="paymentQuantity">Price: &#8377;{orderQuantity * singleOrder.price}</p>
+                <p className="paymentQuantity">Quantity: {orderQuantity}</p>
+                <button onClick={handleOrder} className="confirmOrder">Place Order</button>
+                <button onClick={() => {dialogRef.current.close()}} className="cancelPayment">Cancel</button>
             </div>
         </dialog>
         </>

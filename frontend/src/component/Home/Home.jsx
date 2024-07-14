@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import background from "../../assets/Quick_background.png";
 import { addOrders, sendOrders } from "../../features/orders/orderSlice";
+import { assets } from "./../../assets/assets.js";
 
 function Home(){
     const navigate = useNavigate()
@@ -50,6 +51,13 @@ function Home(){
                 {orders.map((order) => (<li key={order._id} className="foodCards">
                     <div className="foodImage">
                         <img src={order.image} alt="" />
+                    </div>
+                    <div className="flex gap-1 my-1">
+                        <span><img src={assets.star} width={"15px"}/></span>
+                        <span><img src={assets.star} width={"15px"}/></span>
+                        <span><img src={assets.star} width={"15px"}/></span>
+                        <span><img src={assets.star} width={"15px"}/></span>
+                        <span><img src={assets.starBlank} width={"15px"}/></span>
                     </div>
                     <div className="foodInfo">
                         <span className="title">{order.title}</span>

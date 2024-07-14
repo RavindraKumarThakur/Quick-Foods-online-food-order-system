@@ -67,7 +67,8 @@ const loginUser = asyncHandler(async (req,res) => {
         .status(401)
         .json({
             status: 401,
-            message: "User do not exist."
+            message: "User do not exist.",
+            success: false
         })
     }
 
@@ -78,7 +79,8 @@ const loginUser = asyncHandler(async (req,res) => {
         .status(200)
         .json({
             status: 200,
-            message: "Password is wrong."
+            message: "Password is wrong.",
+            success: false
         })
     }
 
@@ -91,6 +93,7 @@ const loginUser = asyncHandler(async (req,res) => {
         password
     },process.env.ACCESS_TOKEN_SECRET)
 
+    console.log(accessToken)
     const action = {
         httpOnly: true,
         // secure: true,
@@ -102,6 +105,7 @@ const loginUser = asyncHandler(async (req,res) => {
         statusCode: 200,
         loggedInUser,
         message: "User is loggedIn",
+        success: true,
         accessToken
     })
 

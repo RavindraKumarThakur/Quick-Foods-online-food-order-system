@@ -18,8 +18,13 @@ function Login() {
 		console.log(data)
 		axios.post("http://localhost:8000/api/v1/users/login",data)
 		.then((res) => {
-			localStorage.setItem("accessToken",res.data.accessToken)
-			navigate("/",{state:{login: true}})
+      console.log(res);
+      if (!res.data.success) {
+        alert(res.data.message)
+      }else{
+        localStorage.setItem("accessToken",res.data.accessToken)
+        navigate("/",{state:{login: true}})
+      }
 		})
 		.catch((err) => console.log(err))
 		e.target.reset();		

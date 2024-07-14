@@ -6,7 +6,8 @@ import linkedin_icon from './linkedin.png'
 import instagram_icon from './instagram.png'
 import minusIcon from "./iconsMinus.png"
 import plusIcon from "./iconsPlus.png"
-
+import star from "./star.png"
+import starBlank from "./starblank.png"
 import apple_icon from './apple.png'
 import playstore_icon from './playstore.png'
 
@@ -20,5 +21,7 @@ export const assets = {
     minusIcon,
     plusIcon,
     apple_icon,
-    playstore_icon
+    playstore_icon,
+    star,
+    starBlank
 }
